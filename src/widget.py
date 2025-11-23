@@ -1,6 +1,7 @@
 from datetime import datetime
 
-from src.masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account
+from src.masks import get_mask_card_number
 
 
 def mask_account_card(account_card_number: str) -> str:
@@ -9,9 +10,11 @@ def mask_account_card(account_card_number: str) -> str:
     number = int(number)
     name = " ".join(name)
     if name == "Счет":
-        return str(name) + " " + get_mask_account(number)
+        masked_account_card = f"{name} {get_mask_account(number)}"
     else:
-        return str(name) + " " + get_mask_card_number(number)
+        masked_account_card = f"{name} {get_mask_card_number(number)}"
+    return masked_account_card
+
 
 def get_date(date: str) -> str:
     date_format = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
