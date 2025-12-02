@@ -43,7 +43,7 @@ pip install -r requirements.txt
 и возвращает только дату в формате 'ДД.ММ.ГГГГ'
 
 ## Модуль processing
- Модуль processing предоставляет функции для фильтрации и сортировки банковских операций.
+Модуль processing предоставляет функции для фильтрации и сортировки банковских операций.
 
 **filter_by_state(unsorted_list: list[dict], state: str = "EXECUTED") -> list[dict]:**
 Фильтрует список операций по статусу выполнения.
@@ -52,6 +52,9 @@ pip install -r requirements.txt
 **sort_by_date(date_list: list[dict], reverse: bool = True) -> list[dict]:**
 Сортирует список операций по дате.
 
+## Проверка линтерами
+
+При проверке файлов mypy и flake8 количество ошибок не превышает 4.
 
 ## Документация:
 
