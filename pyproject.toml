@@ -3,7 +3,7 @@ name = "bank-account"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Your Name",email = "you@example.com"}
+    {name = "DanilaSpasov",email = "spasov2000@mail.ru"}
 ]
 readme = "README.md"
 requires-python = ">=3.14"
