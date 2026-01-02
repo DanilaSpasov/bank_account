@@ -18,8 +18,7 @@ def transaction_generators_list():
     """
     Фикстура возвращает список транзакций для тестов для generators.py.
     """
-    transactions = (
-        [
+    transactions = [
             {
                 "id": 939719570,
                 "state": "EXECUTED",
@@ -95,6 +94,5 @@ def transaction_generators_list():
                 "from": "Visa Platinum 1246377376343588",
                 "to": "Счет 14211924144426031657"
             }
-        ]
-    )
+    ]
     return transactions
