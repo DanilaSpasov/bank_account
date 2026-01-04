@@ -5,6 +5,7 @@ from src.decorators import log
 
 def test_log_decorator_success(capsys):
     """Проверка на успешное деление и работу декоратора"""
+
     @log()
     def divide(a, b):
         return a / b
@@ -22,9 +23,11 @@ def test_log_decorator_success(capsys):
 
 def test_log_decorator_zero_division(capsys):
     """Проверка декоратора на деление на ноль (ожидается исключение)."""
+
     @log()
     def divide(a, b):
         return a / b
+
     with pytest.raises(ZeroDivisionError):
         divide(10, 0)
 
@@ -38,7 +41,8 @@ def test_log_decorator_zero_division(capsys):
 
 
 def test_log_decorator_type_error(capsys):
-    """Тест: передача некорректных типов (например, строка вместо числа)."""
+    """Проверка на передачу некорректных типов (например, строка вместо числа)."""
+
     @log()
     def divide(a, b):
         return a / b
@@ -54,8 +58,10 @@ def test_log_decorator_type_error(capsys):
     assert "Сообщение:" in output
     assert "Вводные данные функции: ('10', 2)" in output
 
+
 def test_log_decorator_negative_numbers(capsys):
-    """Тест: деление отрицательных чисел (граничный случай)."""
+    """Проверка на деление отрицательных чисел (граничный случай)."""
+
     @log()
     def divide(a, b):
         return a / b
@@ -69,6 +75,7 @@ def test_log_decorator_negative_numbers(capsys):
     assert "divide -> OK" in output
     assert "Время начала работы функции -" in output
     assert "Длительность выполнения функции -" in output
+
 
 def test_log_decorator_log_to_file_success(tmp_path, capsys):
     """Проверка записи успешного лога в файл (filename указан).
@@ -94,6 +101,7 @@ def test_log_decorator_log_to_file_success(tmp_path, capsys):
     assert "Время начала работы функции -" in file_content
     assert "Длительность выполнения функции -" in file_content
 
+
 def test_log_decorator_log_to_file_fail(tmp_path, capsys):
     """Проверка записи лога с вызовом ошибки в файл (filename указан).
     Используем tmp_path для создания временного файла."""
@@ -114,4 +122,3 @@ def test_log_decorator_log_to_file_fail(tmp_path, capsys):
     assert "Тип ошибки: ZeroDivisionError" in file_content
     assert "Сообщение: division by zero" in file_content
     assert "Вводные данные функции: (5, 0)" in file_content
-

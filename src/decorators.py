@@ -3,8 +3,15 @@ from datetime import datetime
 from typing import Optional
 
 
-
 def log(filename: Optional[str] = None):
+    """Декоратор, который автоматически логирует начало и конец выполнения функции,
+    а также ее результаты или возникшие ошибки. Декоратор должен принимать необязательный аргумент filename,
+    который определяет, куда будут записываться логи (в файл или в консоль):
+    Если filename задан, логи записываются в указанный файл.
+    Если filename не задан, логи выводятся в консоль.
+    Логирование включает имя функции и результат выполнения при успешной операции.
+    Имя функции, тип возникшей ошибки и входные параметры, если выполнение функции привело к ошибке."""
+
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -42,5 +49,7 @@ def log(filename: Optional[str] = None):
                 else:
                     print(log_msg)
             return result
+
         return wrapper
+
     return decorator
