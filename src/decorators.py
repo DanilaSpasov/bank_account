@@ -33,7 +33,7 @@ def log(filename: Optional[str] = None):
             if error is None:
                 log_msg = (
                     f"{func.__name__} -> OK\n"
-                    f"(Время начала работы функции - {start_time}, время окончания выполнения функции - {end_time})\n"
+                    f"Время начала работы функции - {start_time}, время окончания выполнения функции - {end_time})\n"
                     f"Длительность выполнения функции - {duration}"
                 )
                 if filename:
