@@ -1,5 +1,7 @@
 import json
-from unittest.mock import patch, mock_open
+from unittest.mock import mock_open
+from unittest.mock import patch
+
 from src.utils import json_convertation
 
 
