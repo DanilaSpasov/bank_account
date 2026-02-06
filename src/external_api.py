@@ -18,7 +18,10 @@ def transaction_amount(transaction_list: list) -> float:
             load_dotenv()
             API_KEY = os.getenv("API_KEY")
 
-            url = f"https://api.apilayer.com/exchangerates_data/convert?to={to_currency}&from={from_currency}&amount={amount}"
+            url = (
+                f"https://api.apilayer.com/exchangerates_data/convert?"
+                f"to={to_currency}&from={from_currency}&amount={amount}"
+            )
 
             payload = {}
             headers = {"apikey": API_KEY}
