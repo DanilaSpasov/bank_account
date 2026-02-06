@@ -1,6 +1,7 @@
 import json
 import os
 
+
 def json_convertation(file_path) -> list:
     """функция, которая принимает на вход путь до JSON-файла
     и возвращает список словарей с данными о финансовых транзакциях.

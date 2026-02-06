@@ -68,10 +68,11 @@ def transaction_generators_list():
     ]
     return transactions
 
+
 @pytest.fixture
 def test_data_file_reader():
     """
-    Фикстура возвращает список транзакций для тестов для file_reader
+    Фикстура, которая возвращает список транзакций для тестов для file_reader.py
     """
     test_data = [
         {
@@ -83,7 +84,7 @@ def test_data_file_reader():
             "currency_code": "PEN",
             "from": "Счёт 58803664561298323391",
             "to": "Счёт 39745660563456619397",
-            "description": "Перевод организации"
+            "description": "Перевод организации",
         },
         {
             "id": "3598919",
@@ -94,7 +95,7 @@ def test_data_file_reader():
             "currency_code": "COP",
             "from": "Discover 3172601889670065",
             "to": "Discover 0720428384694643",
-            "description": "Перевод с карты на карту"
-        }
+            "description": "Перевод с карты на карту",
+        },
     ]
     return test_data

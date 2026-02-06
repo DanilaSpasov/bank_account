@@ -4,8 +4,7 @@ import requests
 from dotenv import load_dotenv
 
 
-
-def transaction_amount(transaction_list:list) -> float:
+def transaction_amount(transaction_list: list) -> float:
     """Функция, которая принимает на вход транзакцию и возвращает сумму транзакции (amount) в рублях,
     тип данных — float. Если транзакция была в USD или EUR,
     происходит обращение к внешнему API для получения текущего курса валют и конвертации суммы операции в рубли."""
@@ -30,4 +29,3 @@ def transaction_amount(transaction_list:list) -> float:
                 return converted_amount
             else:
                 raise Exception(f"Ошибка API: {response.status_code}, {response.text}")
-
