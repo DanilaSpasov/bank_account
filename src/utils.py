@@ -2,17 +2,9 @@ import json
 import logging
 import os
 
-logger = logging.getLogger("utils")
-logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler("../logs/utils.log", mode="w")
-file_handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(module)s - %(levelname)s - %(message)s")
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
 
-
-def json_convertation(file_path: str) -> list:
-    """Функция, которая принимает на вход путь до JSON-файла
+def json_convertation(file_path) -> list:
+    """функция, которая принимает на вход путь до JSON-файла
     и возвращает список словарей с данными о финансовых транзакциях.
     Если файл пустой, содержит не список или не найден, функция возвращает пустой список."""
     if not os.path.exists(file_path):
@@ -24,5 +16,4 @@ def json_convertation(file_path: str) -> list:
             data = json.load(file)
             return data if isinstance(data, list) else []
     except (json.JSONDecodeError, OSError):
-        logger.error("Ошибка!", exc_info=True)
         return []
