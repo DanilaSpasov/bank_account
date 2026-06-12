@@ -121,7 +121,3 @@ EXECUTED, CANCELED, PENDING""")
         print(account_info)
         print(f"Сумма: {amount} {currency}")
         print()
-
-
-if __name__ == "__main__":
-    main()

@@ -27,6 +27,3 @@ def read_xlsx(file_path) -> list:
     except Exception as e:
         print(f"Ошибка при чтении файла '{file_path}': {e}")
         return []
-
-if __name__ == "__main__":
-    read_csv("../data/transactions.csv")
