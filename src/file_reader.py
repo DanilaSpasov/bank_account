@@ -4,7 +4,7 @@ import pandas as pd
 def read_csv(file_path) -> list:
     """Функция, которая считывает финансовые операции из .csv файла."""
     try:
-        df = pd.read_csv(file_path, encoding="utf-8")
+        df = pd.read_csv(file_path, encoding="utf-8", sep=";")
         csv_dict = df.to_dict("records")
         return csv_dict
     except FileNotFoundError:
@@ -18,7 +18,7 @@ def read_csv(file_path) -> list:
 def read_xlsx(file_path) -> list:
     """Функция, которая считывает финансовые операции из .xlsx файла."""
     try:
-        df = pd.read_excel(file_path, engine="openpyxl", encoding="utf-8")
+        df = pd.read_excel(file_path, engine="openpyxl")
         xlsx_dict = df.to_dict("records")
         return xlsx_dict
     except FileNotFoundError:
@@ -27,3 +27,6 @@ def read_xlsx(file_path) -> list:
     except Exception as e:
         print(f"Ошибка при чтении файла '{file_path}': {e}")
         return []
+
+if __name__ == "__main__":
+    read_csv("../data/transactions.csv")
