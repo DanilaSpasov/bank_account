@@ -2,6 +2,8 @@ import json
 import logging
 import os
 
+from src.masks import logger
+
 
 def json_convertation(file_path) -> list:
     """функция, которая принимает на вход путь до JSON-файла

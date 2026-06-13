@@ -5,7 +5,7 @@ def filter_by_state(unsorted_list: list[dict], state: str = "EXECUTED") -> list[
 
     sorted_list = []
     for user in unsorted_list:
-        if user["state"] == state:
+        if "state" in user and user["state"] == state:
             sorted_list.append(user)
     return sorted_list
 
